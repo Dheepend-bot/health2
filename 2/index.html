@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Information Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="loginModal" class="modal active">
+        <form id="loginForm" autocomplete="off">
+            <h2>Login</h2>
+            <input type="text" id="username" placeholder="Username" required />
+            <input type="password" id="password" placeholder="Password" required />
+            <button type="submit">Login</button>
+            <div id="loginError" class="error"></div>
+            <div style="text-align:center; margin-top:1rem;">
+                <a href="#" id="showRegister">Create a new account</a>
+            </div>
+        </form>
+    </div>
+    <div id="registerModal" class="modal">
+        <form id="registerForm" autocomplete="off">
+            <h2>Create Account</h2>
+            <input type="text" id="registerUsername" placeholder="Username" required />
+            <input type="password" id="registerPassword" placeholder="Password" required />
+            <button type="submit">Register</button>
+            <div id="registerError" class="error"></div>
+            <div style="text-align:center; margin-top:1rem;">
+                <a href="#" id="showLogin">Back to Login</a>
+            </div>
+        </form>
+    </div>
+    <header>
+        <div class="logo-container">
+            <img src="logo.svg" alt="HEALTH Logo" class="logo" />
+            <h1>HEALTH</h1>
+        </div>
+        <nav>
+            <button onclick="showSection('home')">Home</button>
+            <button onclick="showSection('profile')">My Profile</button>
+            <button onclick="showSection('patients')">Patient Records</button>
+            <button onclick="showSection('appointments')">Appointments</button>
+            <button onclick="showSection('analytics')">Analytics</button>
+            <button onclick="showSection('sharing')">Data Sharing</button>
+        </nav>
+    </header>
+    <main>
+        <section id="home" class="active">
+            <h2>Welcome</h2>
+            <p>Welcome to HEALTH. Use the navigation above to manage patients, appointments, and more.</p>
+            <h3>Latest News</h3>
+            <div id="homeNews">
+                <article class="news-item">
+                    <h4><a href="https://www.healthit.gov/newsroom/news-releases" target="_blank" rel="noopener">System Update Released</a></h4>
+                    <p>We have released a new update to improve security and performance. Please review the release notes for details.</p>
+                    <small>June 5, 2025</small>
+                </article>
+                <article class="news-item">
+                    <h4><a href="https://www.cdc.gov/coronavirus/2019-ncov/vaccines/index.html" target="_blank" rel="noopener">COVID-19 Vaccination Drive</a></h4>
+                    <p>Our hospital is participating in the national COVID-19 vaccination drive. Book your appointment today.</p>
+                    <small>June 1, 2025</small>
+                </article>
+            </div>
+        </section>
+        <section id="profile">
+            <h2>My Profile</h2>
+            <div id="profileContent"></div>
+            <h3>Add Account</h3>
+            <form id="addAccountForm" autocomplete="off">
+                <input type="text" id="newUsername" placeholder="Username" required />
+                <input type="password" id="newPassword" placeholder="Password" required />
+                <button type="submit">Create Account</button>
+            </form>
+            <div id="addAccountStatus"></div>
+        </section>
+        <section id="patients">
+            <h2>Patient Records</h2>
+            <form id="patientForm" autocomplete="off">
+                <input type="text" id="patientName" placeholder="Patient Name" required />
+                <input type="text" id="patientId" placeholder="Patient ID" required />
+                <input type="date" id="dob" placeholder="Date of Birth" required />
+                <input type="text" id="diagnosis" placeholder="Diagnosis" required />
+                <button type="submit">Add Record</button>
+            </form>
+            <div id="patientList"></div>
+        </section>
+        <section id="appointments">
+            <h2>Appointments</h2>
+            <form id="appointmentForm" autocomplete="off">
+                <input type="text" id="apptPatientId" placeholder="Patient ID" required />
+                <input type="date" id="apptDate" required />
+                <input type="time" id="apptTime" required />
+                <input type="text" id="apptReason" placeholder="Reason" required />
+                <button type="submit">Add Appointment</button>
+            </form>
+            <div id="appointmentList"></div>
+        </section>
+        <section id="analytics">
+            <h2>Analytics</h2>
+            <div id="analyticsContent">No data yet.</div>
+        </section>
+        <section id="sharing">
+            <h2>Data Sharing</h2>
+            <p>Share patient data securely with authorized providers.</p>
+            <button onclick="shareData()">Share Selected Records</button>
+            <div id="sharingStatus"></div>
+        </section>
+    </main>
+    <footer>
+        <small>&copy; 2025 Health Information Management System</small>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
